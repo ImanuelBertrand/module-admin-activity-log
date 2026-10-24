@@ -1454,7 +1454,7 @@ class Browser extends AbstractHelper implements Stringable
             && stripos($this->agent, 'iPhone') === false
             && stripos($this->agent, 'iPod') === false
         ) {
-            $aresult = explode('/', stristr($this->agent, 'Version'));
+            $aresult = explode('/', (string) stristr($this->agent, 'Version'));
             if (isset($aresult[1])) {
                 $aversion = explode(' ', $aresult[1]);
                 $this->setVersion($aversion[0]);
@@ -1580,7 +1580,7 @@ class Browser extends AbstractHelper implements Stringable
      */
     protected function getSafariVersionOnIos(): bool
     {
-        $aresult = explode('/', stristr($this->agent, 'Version'));
+        $aresult = explode('/', (string) stristr($this->agent, 'Version'));
         if (isset($aresult[1])) {
             $aversion = explode(' ', $aresult[1]);
             $this->setVersion($aversion[0]);
@@ -1595,7 +1595,7 @@ class Browser extends AbstractHelper implements Stringable
      */
     protected function getChromeVersionOnIos(): bool
     {
-        $aresult = explode('/', stristr($this->agent, 'CriOS'));
+        $aresult = explode('/', (string) stristr($this->agent, 'CriOS'));
         if (isset($aresult[1])) {
             $aversion = explode(' ', $aresult[1]);
             $this->setVersion($aversion[0]);
